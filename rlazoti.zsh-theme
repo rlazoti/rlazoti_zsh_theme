@@ -24,4 +24,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$terminfo[bold]$fg[cyan]%} ✭ %{$reset_color%
 
 PROMPT='%{$terminfo[bold]$fg[white]%}%n%{$reset_color%}%{$terminfo[bold]$fg[white]%}@%{$reset_color%}%{$terminfo[bold]$fg[green]%}%m%{$reset_color%}%{$terminfo[bold]$fg[white]%}:%{$reset_color%}%{$terminfo[bold]$fg[red]%}%0~$ZSH_THEME_GIT_PROMPT_PREFIX$(git_branch)%{$terminfo[bold]$fg[white]%} ⇒%{$reset_color%}  '
 
-RPROMPT='%{$terminfo[bold]$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+RPROMPT='%{$terminfo[bold]$fg[red]%} `~/.rvm/bin/rvm-prompt i v p g` %{$reset_color%}%'
