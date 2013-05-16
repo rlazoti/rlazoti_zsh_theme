@@ -2,14 +2,6 @@ function git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\ (\1$(parse_git_dirty)$(git_prompt_status))/"
 }
 
-function rvm_ruby_prompt {
-  if (declare -f rvm > /dev/null) {
-    if [[ -x $MY_RUBY_HOME ]]
-    then ruby -v | sed 's/\([^(]*\).*/\1/'
-    fi
-  }
-}
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$terminfo[bold]$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY=""
@@ -24,4 +16,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$terminfo[bold]$fg[cyan]%} ✭ %{$reset_color%
 
 PROMPT='%{$terminfo[bold]$fg[white]%}%n%{$reset_color%}%{$terminfo[bold]$fg[white]%}@%{$reset_color%}%{$terminfo[bold]$fg[green]%}%m%{$reset_color%}%{$terminfo[bold]$fg[white]%}:%{$reset_color%}%{$terminfo[bold]$fg[red]%}%0~$ZSH_THEME_GIT_PROMPT_PREFIX$(git_branch)%{$terminfo[bold]$fg[white]%} ⇒%{$reset_color%}  '
 
-RPROMPT='%{$terminfo[bold]$fg[red]%} `~/.rvm/bin/rvm-prompt i v p g` %{$reset_color%}%'
+RPROMPT='%{$terminfo[bold]$fg[red]%} `~/.rvm/bin/rvm current` %{$reset_color%}%'
